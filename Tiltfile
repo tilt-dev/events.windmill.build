@@ -2,16 +2,16 @@ local_resource(
   'build', './hack/build.sh')
 
 docker_build(
-  'cloud-tilt-dev', '.')
+  'events-windmill-build', '.')
 
 k8s_yaml(
   helm('./chart',
-       name='cloud-tilt-dev',
+       name='events-windmill-build',
        set=[
-         'imageName=cloud-tilt-dev',
+         'imageName=events-windmill-build',
          'numReplicas=1',
        ]))
 
 k8s_resource(
-  'snapshot-frontend',
-  port_forwards='10450:10450')
+  'wmstats-prod',
+  port_forwards='8080:8080')

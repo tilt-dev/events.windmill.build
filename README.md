@@ -1,8 +1,8 @@
-# cloud.tilt.dev
+# events.windmill.build
 
-A stub for cloud.tilt.dev.
+A stub for events.windmill.build
 
-Serves a static HTML page on why Tilt Cloud no longer exists.
+Serves a static site to blackhole all the events sent
+by https://github.com/tilt-dev/wmclient.
 
-Stubs out API endpoints that we used Tilt Cloud for, most
-notably the version upgrade endpoint (`/api/whoami/`).
+Most notably, the `/report` endpoint.
