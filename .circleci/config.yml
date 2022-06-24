@@ -68,4 +68,4 @@ workflows:
           context: Tilt Deploy Context
           filters:
             branches:
-              only: none
+              only: main
