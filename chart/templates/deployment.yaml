@@ -1,29 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: snapshot-frontend
+  name: wmstats-prod
   namespace: {{ .Values.namespace }}
   labels:
-    app: snapshot-frontend
+    app: wmstats
+    track: prod
 spec:
   replicas: {{ .Values.numReplicas }}
   selector:
     matchLabels:
-      app: snapshot-frontend
+      app: wmstats
+      track: prod
   template:
     metadata:
       labels:
-        app: snapshot-frontend
+        app: wmstats
+        track: prod
     spec:
       containers:
-      - name: snapshot-frontend
+      - name: wmstats-prod
         image: {{ .Values.imageName }}
         ports:
-        - containerPort: 10450
+        - containerPort: 8080
+          name: http
+          protocol: TCP
         readinessProbe:
           httpGet:
             path: /healthz
-            port: 10450
+            port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
         resources:

@@ -1,4 +1,4 @@
-module github.com/tilt-dev/cloud.tilt.dev
+module github.com/tilt-dev/events-windmill-build
 
 go 1.18
 
